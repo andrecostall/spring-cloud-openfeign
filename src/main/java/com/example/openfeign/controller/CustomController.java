@@ -8,6 +8,8 @@ import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.IOException;
+
 
 @AllArgsConstructor
 @RestController
@@ -19,12 +21,12 @@ public class CustomController {
     private final IbgeClient ibgeClient;
 
     @GetMapping("/postmon/{cep}")
-    public ResponseEntity<?> getApiPostmonCep(@PathVariable String cep) {
+    public ResponseEntity<CepResponse> getApiPostmonCep(@PathVariable String cep) {
         return cepPostmonClient.getCep(cep);
     }
 
     @GetMapping("/viacep/{cep}")
-    public ResponseEntity<CepResponse> getViaCep(@PathVariable String cep) {
+    public ResponseEntity<?> getViaCep(@PathVariable String cep) {
         return cepViaCepClient.getCep(cep);
     }
 

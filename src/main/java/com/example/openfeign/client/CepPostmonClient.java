@@ -10,6 +10,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 public interface CepPostmonClient {
 
     @GetMapping("/v1/cep/{cep}")
-    ResponseEntity<?> getCep(@PathVariable("cep") String cep);
+    ResponseEntity<CepResponse> getCep(@PathVariable("cep") String cep);
 
 }
